@@ -74,6 +74,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: '리스트 뷰',
       home: ListViewScreen(list: animalList),
     );
