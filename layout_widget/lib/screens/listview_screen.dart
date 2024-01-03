@@ -3,13 +3,14 @@ import 'package:layout_widget/models/animal.dart';
 
 class ListViewScreen extends StatefulWidget {
   final List<Animal> list;
-  const ListViewScreen({super.key, required this.list});
+  const ListViewScreen({super.key, required this.list}); 
 
   @override
   State createState() => _ListViewScreenState();
 }
 
 class _ListViewScreenState extends State<ListViewScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +26,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
+                        // ''image/animal1.jpg'
                         widget.list[position].imagePath ?? 'image/product.jpg',
                         width: 64,
                         height: 64,
