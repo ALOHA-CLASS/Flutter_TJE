@@ -62,6 +62,7 @@ class UserProvider extends ChangeNotifier {
       print('userInfo : ${_userInfo}');
       print('id : ${_userInfo.id}');
       print('nickname : ${_userInfo.kakaoAccount?.profile?.nickname}');
+      print('thumbnailImageUrl : ${_userInfo.kakaoAccount?.profile?.thumbnailImageUrl}');
     } catch (error) {
       print('사용자 정보 요청 실패 $error');
     }
@@ -103,9 +104,10 @@ class UserProvider extends ChangeNotifier {
   // 로그아웃
   Future<void> kakaoLogout() async {
     try {
+      // 로그인 토큰 정보 삭제 등 로그아웃 처리
       await UserApi.instance.logout();
-      print('로그아웃 성공');
       _loginStat = false;
+      print('로그아웃 성공');
     } catch (error) {
       print('로그아웃 실패');
     }

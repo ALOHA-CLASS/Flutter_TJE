@@ -27,28 +27,26 @@ class _LogoutScreenState extends State<LogoutScreen> {
       body: Container(
         child: Center(
           child: ElevatedButton(
-            child: Consumer<UserProvider>(
-              builder: (context, user, child) => 
-                Text("카카오 로그아웃")
+            child: 
+              const Text("카카오 로그아웃"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amberAccent,
+                foregroundColor: Colors.brown,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0)
+                ),
+                elevation: 5
               ),
-
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.amberAccent,
-              foregroundColor: Colors.brown,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)
-              ),
-              elevation: 5
-            ),
-            onPressed: () async {
-              // 카카오 로그아웃 요청
-              var user = context.read<UserProvider>();
-              if(user.isLogin) {
-                user.kakaoLogout();
-                print('카카오 로그아웃 완료...');
-              }
-              Navigator.pushReplacementNamed(context, '/login');
-            },
+              onPressed: () async {
+                // 카카오 로그아웃 요청
+                // context ➡ provier 가져와서 사용
+                var user = context.read<UserProvider>();
+                if(user.isLogin) {
+                  user.kakaoLogout();
+                  print('카카오 로그아웃 완료...');
+                }
+                Navigator.pushReplacementNamed(context, '/login');
+              },
 
           ),
         ),

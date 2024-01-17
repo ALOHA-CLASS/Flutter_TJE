@@ -3,7 +3,7 @@ class Board {
   int? boardNo;
   String? title;
   String? writer;
-  String? content;
+  String? content;  
 
   Board({
     required this.boardNo,

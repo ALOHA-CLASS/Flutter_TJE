@@ -28,58 +28,66 @@ class _LoginScreenState extends State<LoginScreen> {
             builder: (context, user, child) => 
                Container(
                 child: Center(
-                  
                   child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.network('${user.userInfo.kakaoAccount?.profile?.thumbnailImageUrl}'),
-                        Text('${user.userInfo.kakaoAccount?.profile?.nickname}'),
-                        ElevatedButton(
-                          child: Text(
-                                !user.isLogin ? '카카오 로그인' : '로그아웃'
-                              ),
+                    child: 
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          user.isLogin ?
+                            Container(
+                              child: Column(
+                                      children: [
+                                        Image.network('${user.userInfo.kakaoAccount?.profile?.thumbnailImageUrl}'),
+                                        Text('${user.userInfo.kakaoAccount?.profile?.nickname}'),
 
-                          style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.amberAccent,
-                                  foregroundColor: Colors.brown,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0)
+                                      ],
+                                    )
+                            )
+                          : Text(''),
+                          ElevatedButton(
+                            child: Text(
+                                    !user.isLogin ? '카카오 로그인' : '로그아웃'
+                                   ),
+
+                            style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.amberAccent,
+                                    foregroundColor: Colors.brown,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0)
+                                    ),
+                                    elevation: 5
                                   ),
-                                  elevation: 5
-                                ),
-                          onPressed: () async {
-                            // 카카오 로그인 요청
-                            // provider 로 부터 사용자 정보 가져와서 확인
-                            var user = context.read<UserProvider>();
+                            onPressed: () async {
+                              // 카카오 로그인 요청
+                              // provider 로 부터 사용자 정보 가져와서 확인
+                              var user = context.read<UserProvider>();
 
-                            // ✔ 로그인 여부 확인
-                            user.loginCheck();
+                              // ✔ 로그인 여부 확인
+                              user.loginCheck();
 
-                            // 비로그인 시 ➡ 로그인 요청
-                            if( !await user.isLogin ) {
-                              // 사용자 조건 : 카카오톡 설치 여부
-                              await isKakaoTalkInstalled() ? user.kakaoTalkLogin() : user.kakaoLogin();
-                            }
-                            else {
-                              // 이미 로그인된 상태 ➡ 로그인 화면
-                              Navigator.pushReplacementNamed(context, "/logout");
-                            }
+                              // 비로그인 시 ➡ 로그인 요청
+                              if( !await user.isLogin ) {
+                                // 사용자 조건 : 카카오톡 설치 여부
+                                await isKakaoTalkInstalled() ? user.kakaoTalkLogin() : user.kakaoLogin();
+                              }
+                              else {
+                                // 이미 로그인된 상태 ➡ 로그인 화면
+                                Navigator.pushReplacementNamed(context, "/logout");
+                              }
 
-                          },
+                            },
 
-                        ),
-                        
-                      ],
-                    ),
+                          ),
+                          
+                        ],
+                      )
+                    
                   )
                   
                 ),
               ),
               
             ),
-      
-     
-    );
+      );
   }
 }

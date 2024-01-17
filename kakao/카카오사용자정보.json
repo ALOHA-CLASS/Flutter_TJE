@@ -1,0 +1,19 @@
+{
+    "id":1165181762,
+    "properties":{
+       "nickname":"🙆🏼‍♂️",
+       "profile_image":"https"://k.kakaocdn.net/dn/bBTDPL/btsCQrNCHtL/5yUR0vsfzteg3WxAZSl8KK/img_640x640.jpg,
+       "thumbnail_image":"https"://k.kakaocdn.net/dn/bBTDPL/btsCQrNCHtL/5yUR0vsfzteg3WxAZSl8KK/img_110x110.jpg
+    },
+    "kakao_account":{
+       "profile_needs_agreement":false,
+       "profile":{
+          "nickname":"🙆🏼‍♂️",
+          "thumbnail_image_url":"https"://k.kakaocdn.net/dn/bBTDPL/btsCQrNCHtL/5yUR0vsfzteg3WxAZSl8KK/img_110x110.jpg,
+          "profile_image_url":"https"://k.kakaocdn.net/dn/bBTDPL/btsCQrNCHtL/5yUR0vsfzteg3WxAZSl8KK/img_640x640.jpg,
+          "is_default_image":false
+       },
+       "email_needs_agreement":true
+    },
+    "connected_at":"2019-09-08T14":"17":22.000Z
+ }
