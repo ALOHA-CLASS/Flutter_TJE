@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:navigator_app/models/user.dart';
 import 'package:navigator_app/screens/community/community_screen.dart';
 import 'package:navigator_app/screens/home_screen.dart';
 import 'package:navigator_app/screens/user/user_screen.dart';
@@ -22,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       _selectedIndex = index;
       if( _selectedIndex == 0 ) _selectedScreen = HomeScreen();
-      else if( _selectedIndex == 1 ) _selectedScreen = UserScreen();
+      else if( _selectedIndex == 1 ) _selectedScreen = UserScreen( user: User(id: 'joeun', name: '김조은', ));
       else if( _selectedIndex == 2 ) _selectedScreen = CommunityScreen();
     });
   }

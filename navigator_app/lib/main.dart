@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navigator_app/models/user.dart';
 import 'package:navigator_app/screens/community/community_screen.dart';
 import 'package:navigator_app/screens/home_screen.dart';
 import 'package:navigator_app/screens/main_screen.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/main' : (context) => MainScreen(),
         '/home' : (context) => HomeScreen(),
-        '/user' : (context) => UserScreen(),
+        '/user' : (context) => UserScreen(user: User(id: '', name: '', ),),
         '/community' : (context) => CommunityScreen(),
       },
     );

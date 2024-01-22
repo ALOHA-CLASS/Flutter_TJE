@@ -16,7 +16,7 @@ class _ReadScreenState extends State<ReadScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.board.title ?? '제목'),
+        // title: Text(widget.board.title ?? '제목'),
         actions: [
           PopupMenuButton(
             itemBuilder: (context) {
@@ -40,6 +40,12 @@ class _ReadScreenState extends State<ReadScreen> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 5.0),
         child: Column(
           children: [
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.person),
+                title: Text(widget.board.writer ?? '작성자'),
+              ),
+            ),
             Card(
               child: ListTile(
                 leading: Icon(Icons.person),

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:navigator_app/models/user.dart';
 
 class CommunityScreen extends StatelessWidget {
   const CommunityScreen({super.key});
@@ -26,7 +27,8 @@ class CommunityScreen extends StatelessWidget {
               onPressed: () {
                 // Navigator.pop(context);
                 // Navigator.pushNamed(context, "/user");
-                Navigator.pushReplacementNamed(context, "/user");
+                // Navigator.pushReplacementNamed(context, "/user");
+                Navigator.pushReplacementNamed(context, "/user", arguments: User(id: 'joeun', name: '김조은',));
               }, 
               child: Text('마이 페이지')
             ),
